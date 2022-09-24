@@ -51,5 +51,16 @@
     "ts-jest": "^29.0.2",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
-  }
+  },
+  "repository": "git@github.com:vtaits/use-lazy-ref.git",
+  "homepage": "https://github.com/vtaits/use-lazy-ref",
+  "author": "Vadim Taits",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "useref",
+    "callback",
+    "lazy",
+    "use-lazy-ref"
+  ]
 }
