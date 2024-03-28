@@ -1,17 +1,16 @@
-import { jest } from "@jest/globals";
+import { useRef } from "react";
+import { expect, test, vi } from "vitest";
 
-jest.unstable_mockModule("react", () => ({
-	useRef: jest.fn(),
+vi.mock("react", () => ({
+	useRef: vi.fn(),
 }));
-
-const { useRef } = await import("react");
 
 const { useLazyRef, EMPTY_VALUE } = await import("../index");
 
-const mockedUseRef = jest.mocked(useRef);
+const mockedUseRef = vi.mocked(useRef);
 
 test("should return filled value and not call init", () => {
-	const init = jest.fn();
+	const init = vi.fn();
 
 	const refResult = {
 		current: Symbol("result"),
@@ -28,7 +27,7 @@ test("should return filled value and not call init", () => {
 test("should return result of init", () => {
 	const resultValue = Symbol("result");
 
-	const init = jest.fn().mockReturnValue(resultValue);
+	const init = vi.fn().mockReturnValue(resultValue);
 
 	mockedUseRef.mockReturnValue({
 		current: EMPTY_VALUE,

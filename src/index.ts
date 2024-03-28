@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import type { MutableRefObject } from "react";
+import { type MutableRefObject, useRef } from "react";
 
 export const EMPTY_VALUE = Symbol("useLazyRef empty value");
 
