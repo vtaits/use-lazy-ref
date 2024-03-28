@@ -5,19 +5,18 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/use-lazy-ref.umd.cjs",
-  "module": "./dist/use-lazy-ref.js",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
   "exports": {
     ".": {
-      "import": "./dist/use-lazy-ref.js",
-      "require": "./dist/use-lazy-ref.umd.cjs"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
-  "typings": "dist/ts/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "scripts": {
-    "build:ts": "tsc -p ./tsconfig.build.json",
-    "build:js": "vite build",
-    "build": "yarn build:js && yarn build:ts",
+    "build": "tsup src/index.ts --sourcemap --format esm,cjs --dts --legacy-output",
     "test:ts": "tsc --noEmit",
     "test:unit": "vitest run --coverage.enabled --coverage.all --coverage.include=src",
     "test:unit:watch": "vitest",
@@ -38,8 +37,8 @@
     "@vitest/coverage-v8": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tsup": "^8.0.2",
     "typescript": "^4.6.4",
-    "vite": "^3.1.0",
     "vitest": "^1.4.0"
   },
   "repository": "git@github.com:vtaits/use-lazy-ref.git",
