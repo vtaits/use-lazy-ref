@@ -16,7 +16,7 @@
   },
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --sourcemap --format esm,cjs --dts --legacy-output",
+    "build": "tsup src/index.ts --sourcemap --format esm,cjs --dts",
     "test:ts": "tsc --noEmit",
     "test:unit": "vitest run --coverage.enabled --coverage.all --coverage.include=src",
     "test:unit:watch": "vitest",
