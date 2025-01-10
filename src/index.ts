@@ -1,13 +1,13 @@
-import { type MutableRefObject, useRef } from "react";
+import { type RefObject, useRef } from "react";
 
-export const EMPTY_VALUE = Symbol("useLazyRef empty value");
+const EMPTY_VALUE = Symbol("useLazyRef empty value");
 
-export const useLazyRef = <T>(init: () => T): MutableRefObject<T> => {
+export const useLazyRef = <T>(init: () => T): RefObject<T> => {
 	const resultRef = useRef<T | typeof EMPTY_VALUE>(EMPTY_VALUE);
 
 	if (resultRef.current === EMPTY_VALUE) {
 		resultRef.current = init();
 	}
 
-	return resultRef as MutableRefObject<T>;
+	return resultRef as RefObject<T>;
 };
