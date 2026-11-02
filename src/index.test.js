@@ -1,6 +1,6 @@
 import { expect, mock, test } from "bun:test";
 import { renderHook } from "@testing-library/react";
-import { useLazyRef } from "./index";
+import { useLazyRef } from "./index.js";
 
 test("should call init only on first render", () => {
 	const init = mock().mockReturnValue("test");

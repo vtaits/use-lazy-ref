@@ -9,7 +9,7 @@
 ### Good
 
 ```typescript
-import { useLazyRef } from '@vtaits/use-lazy-ref';
+import { useLazyRef } from "@vtaits/use-lazy-ref";
 
 const ref = useLazyRef(() => getRefInitialValue());
 ```
@@ -21,12 +21,12 @@ const ref = useLazyRef(() => getRefInitialValue());
 ### Bad
 
 ```typescript
-import { useRef } from 'react';
+import { useRef } from "react";
 
 const ref = useRef<ValueType>();
 
 if (!ref.current) {
-  ref.current = getRefInitialValue();
+	ref.current = getRefInitialValue();
 }
 ```
 

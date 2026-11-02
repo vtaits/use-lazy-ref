@@ -3,26 +3,29 @@
   "version": "0.1.4",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "!src/**/*.test.js"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "typings": "dist/ts/index.d.ts",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./dist/ts/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
     }
   },
-  "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --sourcemap --format esm,cjs --dts",
-    "test:ts": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json",
+    "test:ts": "tsc",
     "test:unit": "bun test --coverage",
     "test:unit:watch": "bun test --watch",
-    "lint": "biome check src",
-    "lint:fix": "biome check src --write --unsafe",
-    "format": "biome format src --write",
+    "lint": "biome check",
+    "lint:fix": "biome check --write --unsafe",
+    "format": "biome format --write",
     "test": "bun run lint && bun run test:ts && bun run test:unit",
     "prepare": "bun run build"
   },
@@ -30,17 +33,16 @@
     "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@happy-dom/global-registrator": "^16.5.3",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.1.0",
-    "@types/bun": "latest",
-    "@types/react": "^19.0.4",
-    "@types/react-dom": "^19.0.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tsup": "^8.3.5",
-    "typescript": "^5.7.3"
+    "@biomejs/biome": "^2.6.4",
+    "@happy-dom/global-registrator": "^21.0.4",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
+    "@types/bun": "^1.4.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^7.0.2"
   },
   "repository": "git@github.com:vtaits/use-lazy-ref.git",
   "homepage": "https://github.com/vtaits/use-lazy-ref",
